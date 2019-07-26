@@ -30,11 +30,11 @@ function click(element)
 		let menuButton = document.querySelector('div[aria-label="Top Tweets on"]')
 		if (menuButton != null)
 		{
-			// Clicks on option icon.
+			// Clicks on menu button.
 			click(menuButton);
 			await sleep(500);
 
-			// Click "Latest".
+			// Click "Latest" button.
 			let latestButton = document.querySelector('div[role="menuitem"]')
 			click(latestButton);
 			break
