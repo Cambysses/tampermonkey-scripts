@@ -8,9 +8,9 @@
 
 // Script sees if tweets are set to "home", and if so switches to "latest".
 
-function sleep(ms)
+function sleep(milliseconds)
 {
-	return new Promise(resolve => setTimeout(resolve, ms));
+	return new Promise(resolve => setTimeout(resolve, milliseconds));
 }
 
 function click(element)
@@ -24,6 +24,7 @@ function click(element)
 {
 	for(i = 0; i < 5; i++)
 	{
+		// Waits a second for page to load, couldn't get this to work otherwise.
 		await sleep(1000);
 
 		// Checks if tweets are set to "Home".
@@ -39,6 +40,5 @@ function click(element)
 			click(latestButton);
 			break
 		}
-		console.log(i);
 	}
 })();
