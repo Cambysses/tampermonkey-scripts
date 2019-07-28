@@ -15,7 +15,7 @@ function sleep(milliseconds)
 
 function click(element)
 {
-	let event = document.createEvent("HTMLEvents");
+	const event = document.createEvent("HTMLEvents");
 	event.initEvent("click", true, true);
 	element.dispatchEvent(event);	 
 }
@@ -28,7 +28,7 @@ function click(element)
 		await sleep(1000);
 
 		// Checks if tweets are set to "Home".
-		let menuButton = document.querySelector('div[aria-label="Top Tweets on"]')
+		const menuButton = document.querySelector('div[aria-label="Top Tweets on"]')
 		if (menuButton != null)
 		{
 			// Clicks on menu button.
@@ -36,7 +36,7 @@ function click(element)
 			await sleep(500);
 
 			// Click "Latest" button.
-			let latestButton = document.querySelector('div[role="menuitem"]')
+			const latestButton = document.querySelector('div[role="menuitem"]')
 			click(latestButton);
 			break
 		}
