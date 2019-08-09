@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     Latest Tweets
-// @version  1.2
+// @version  1.3
 // @grant    none
 // @include http*://twitter.com*
 // @run-at document-end
