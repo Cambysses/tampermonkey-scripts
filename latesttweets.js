@@ -36,7 +36,7 @@ function click(element)
 			await sleep(500);
 
 			// Click "Latest" button.
-			const latestButton = document.querySelector('div[class="css-1dbjc4n r-1loqt21 r-18u37iz r-1j3t67a r-9qu9m4 r-o7ynqc r-1j63xyz r-13qz1uu"]')
+			const latestButton = document.querySelector('div[class="css-1dbjc4n r-1loqt21 r-18u37iz r-1ny4l3l r-1j3t67a r-9qu9m4 r-o7ynqc r-6416eg r-13qz1uu"]')
 			click(latestButton);
 			break
 		}
