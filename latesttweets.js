@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     Latest Tweets
-// @version  1.3
+// @version  1.4
 // @grant    none
 // @include http*://twitter.com*
 // @run-at document-end
@@ -17,28 +17,22 @@ function click(element)
 {
 	const event = document.createEvent("HTMLEvents");
 	event.initEvent("click", true, true);
-	element.dispatchEvent(event);	 
+	element.dispatchEvent(event);
 }
 
-(async () => 
+(async () =>
 {
-	for(i = 0; i < 5; i++)
-	{
-		// Waits a second for page to load, couldn't get this to work otherwise.
-		await sleep(1000);
+    // Waits a second for page to load, hacky but couldn't get this to work otherwise.
+    await sleep(1000);
 
-		// Checks if tweets are set to "Home".
-		const menuButton = document.querySelector('div[aria-label="Top Tweets on"]')
-		if (menuButton != null)
-		{
-			// Clicks on menu button.
-			click(menuButton);
-			await sleep(500);
+    // Checks if tweets are set to "Home".
+    const menuButton = document.querySelector('div[aria-label="Top Tweets on"]')
+    if (menuButton)
+    {
+        // Clicks on menu button.
+        click(menuButton);
 
-			// Click "Latest" button.
-			const latestButton = document.querySelector('div[class="css-1dbjc4n r-1loqt21 r-18u37iz r-1ny4l3l r-1j3t67a r-9qu9m4 r-o7ynqc r-6416eg r-13qz1uu"]')
-			click(latestButton);
-			break
-		}
-	}
+        // Click "Latest" button. Yes I know this is hideous.
+        click(document.evaluate("//span[text()='See latest Tweets instead']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.parentElement.parentElement.parentElement);
+    }
 })();
