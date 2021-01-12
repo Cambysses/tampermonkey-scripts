@@ -8,11 +8,6 @@
 
 // Script sees if tweets are set to "home", and if so switches to "latest".
 
-function sleep(milliseconds)
-{
-	return new Promise(resolve => setTimeout(resolve, milliseconds));
-}
-
 function click(element)
 {
 	const event = document.createEvent("HTMLEvents");
@@ -23,7 +18,7 @@ function click(element)
 (async () =>
 {
     // Waits a second for page to load, hacky but couldn't get this to work otherwise.
-    await sleep(1000);
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
     // Checks if tweets are set to "Home".
     const menuButton = document.querySelector('div[aria-label="Top Tweets on"]')
