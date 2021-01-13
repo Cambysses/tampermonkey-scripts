@@ -8,13 +8,6 @@
 
 // Script sees if tweets are set to "home", and if so switches to "latest".
 
-function click(element)
-{
-	const event = document.createEvent("HTMLEvents");
-	event.initEvent("click", true, true);
-	element.dispatchEvent(event);
-}
-
 (async () =>
 {
     // Waits a second for page to load, hacky but couldn't get this to work otherwise.
@@ -25,9 +18,9 @@ function click(element)
     if (menuButton)
     {
         // Clicks on menu button.
-        click(menuButton);
+        menuButton.click();
 
         // Click "Latest" button. Yes I know this is hideous.
-        click(document.evaluate("//span[text()='See latest Tweets instead']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.parentElement.parentElement.parentElement);
+        document.evaluate("//span[text()='See latest Tweets instead']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.parentElement.parentElement.parentElement.click();
     }
 })();
