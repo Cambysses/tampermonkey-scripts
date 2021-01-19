@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name     Latest Tweets
-// @version  1.4
+// @version  1.5
+// @author Cambysses
 // @grant    none
 // @include http*://twitter.com*
 // @run-at document-end
@@ -8,11 +9,8 @@
 
 // Script sees if tweets are set to "home", and if so switches to "latest".
 
-(async () =>
+setTimeout(function()
 {
-    // Waits a second for page to load, hacky but couldn't get this to work otherwise.
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
     // Checks if tweets are set to "Home".
     const menuButton = document.querySelector('div[aria-label="Top Tweets on"]')
     if (menuButton)
@@ -20,7 +18,7 @@
         // Clicks on menu button.
         menuButton.click();
 
-        // Click "Latest" button. Yes I know this is hideous.
+        // Click "See Latest Tweets Instead" button. Yes I know this is hideous.
         document.evaluate("//span[text()='See latest Tweets instead']", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.parentElement.parentElement.parentElement.click();
     }
-})();
+}, 1000);
