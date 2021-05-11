@@ -1,6 +1,8 @@
 # Cambysses' Tampermonkey scripts
 A collection of all my TM scripts.
 
+## coindesk-value
+Prints the value of your crypto holdings for a given coin below the price ticker on coindesk.com. I created this so I don't have to log into the app every time to get an idea of how much my coins are worth.
 
 ## latest-tweets.js
 Automatically switches twitter to chronological tweets.
